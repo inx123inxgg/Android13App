@@ -27,7 +27,7 @@ jobs:
         run: cd Android13AppSrc && ./gradlew assembleDebug
 
       - name: Upload APK
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: Android13App-APK
           path: Android13AppSrc/app/build/outputs/apk/debug/*.apk
