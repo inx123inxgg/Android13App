@@ -12,16 +12,19 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Set up JDK 11
-        uses: actions/setup-java@v2
+        uses: actions/setup-java@v3
         with:
           distribution: temurin
           java-version: 11
 
+      - name: Unzip source code
+        run: unzip Android13App.zip -d Android13AppSrc
+
       - name: Grant execute permission for gradlew
-        run: chmod +x ./Android13AppSrc/gradlew
+        run: chmod +x Android13AppSrc/gradlew
 
       - name: Build with Gradle
         run: cd Android13AppSrc && ./gradlew assembleDebug
@@ -29,5 +32,5 @@ jobs:
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
-          name: Android13App-APK
-          path: Android13AppSrc/app/build/outputs/apk/debug/*.apk
+          name: Android13App
+          path: Android13AppSrc/app/build/outputs/apk/debug/app-debug.apk
