@@ -15,11 +15,6 @@ jobs:
       - name: Checkout Repo
         uses: actions/checkout@v3
 
-      # 2. Unzip your Android project
-      - name: Unzip Project
-        run: |
-          unzip Android13AppFinal_ready.zip -d project
-          ls -R project
 
       # 3. Set up JDK 17 (required for Android builds)
       - name: Set up JDK 17
