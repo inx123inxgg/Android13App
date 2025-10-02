@@ -29,11 +29,6 @@ jobs:
         with:
           gradle-version: 8.1.1
 
-      # 5. Make gradlew executable
-      - name: Make gradlew executable
-        working-directory: project
-        run: chmod +x ./gradlew
-
       # 6. Build Debug APK
       - name: Build Debug APK
         working-directory: project
